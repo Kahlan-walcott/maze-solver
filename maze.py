@@ -210,7 +210,6 @@ class Maze:
         # from Julian
         self.dict[(x, y)] = 1 + min(self.dict.get((x + 1, y), math.inf), self.dict.get((x - 1, y), math.inf),
                                       self.dict.get((x, y + 1), math.inf), self.dict.get((x, y - 1), math.inf))
-        print(self.dict)
         grid[x][y] = 'o'
 
     def __shortest_helper_stack(self, x, y):
@@ -225,7 +224,6 @@ class Maze:
         self.__shortest_helper_stack(direction[0], direction[1])
         print()
         print(nabors)
-        print(direction)
 
 if __name__ == "__main__":
     grid2 = [['o', 'x', 'o', 'o', 'o'],
