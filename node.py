@@ -40,3 +40,4 @@ class Node:
         """
 
         return f'({self.data[0]},{self.data[1]})'
+

@@ -42,7 +42,7 @@ class Maze:
         else:  # if the grid is greater than 3 then it is valid
             self.__nrows = len(grid)
 
-        if len(grid[0]) < 3:  # from Julian, if the length of the second list is less than 3 it is not a valid grid
+        if len(grid[0]) < 3:  # if the length of the second list is less than 3 it is not a valid grid
             raise ValueError()
         else:  # if the grid is greater than 3 it is valid
             self.__ncols = len(grid[0])
@@ -175,13 +175,10 @@ class Maze:
             return True
 
         self.__path.pop()
-        print(grid)
         return False
 
     def solve_shortest(self):
         """This function finds the shortest path to the exit."""
-        # dict with the paths as keys and values as how many steps
-        # self.__shortest_path = LLStack()
         if self.__shortest_helper_dic(self.__entry[0], self.__entry[1],
                                       self.__grid[:][:]):  # if the recursive helper function returned true there is a shorter path
             return True
@@ -220,14 +217,6 @@ class Maze:
         self.__shortest_path = LLStack()
         if (x, y) == self.__exit:
             return
-        # for k, v in self.dict.items():
-        #     if v == math.inf:
-        #         continue
-        #     # if k == self.__entry:
-        #     #     self.__shortest_path.push(k)
-        #     self.__shortest_path.push(k)
-        # print()
-        # print(self.__shortest_path.__str__())
 
         self.__shortest_path.push(self.__entry)
         nabors = {(x + 1, y): self.dict.get((x + 1, y), math.inf), (x - 1, y): self.dict.get((x - 1, y), math.inf),
@@ -237,7 +226,6 @@ class Maze:
         print()
         print(nabors)
         print(direction)
-        # print(self.__shortest_path.__str__())
 
 if __name__ == "__main__":
     grid2 = [['o', 'x', 'o', 'o', 'o'],
@@ -252,8 +240,7 @@ if __name__ == "__main__":
              ['x', 'x', 'o', 'o']]
     entry = (0, 0)
     exits = (3, 3)
-    # in_grid = [list(list(input('make a maze with o\'s and x\'s: ')))]
-    # in_entry = tuple(input('Enter the start of the maze (0, 0): '))
-    # in_exit = input('Enter the exit of the maze (3, 3): ')
+    
     maze = Maze(grids, entry, exits)
     maze.solve_shortest()
+

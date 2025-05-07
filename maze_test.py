@@ -111,6 +111,6 @@ class TestMaze(unittest.TestCase):
         entry = (0, 0)
         exits = (4, 4)
         solve = Maze(grid, entry, exits)
-        self.assertEqual(None, solve.solve_shortest())
+        self.assertEqual('', solve.solve_shortest())
 
 
